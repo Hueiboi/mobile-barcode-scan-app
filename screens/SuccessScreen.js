@@ -39,7 +39,7 @@ export default function SuccessScreen({ navigation }) {
 
         <TouchableOpacity style={styles.checkDetailsBtn}>
           <Text style={styles.checkDetailsText}>Check Details</Text>
-          <Image source={require('../assets/Arrow 1.png')} style={styles.arrowIcon} />
+          <Image source={require('../assets/Arrow 1.png')} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.downloadBtn}>
