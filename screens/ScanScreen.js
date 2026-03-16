@@ -1,16 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, SafeAreaView, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function ScanScreen({ navigation }) {
+  const insets = useSafeAreaInsets();
+
   return (
     <View style={styles.container}>
       <ImageBackground 
         source={require('../assets/glass-bottle-mockups-for-food-and-beverage-packaging-cover 1.png')} 
         style={styles.background}
       >
-        <SafeAreaView style={styles.safeArea}>
+        <View style={[styles.safeArea,
+         {
+          paddingTop: insets.top,
+          paddingBottom: insets.bottom,
+          paddingLeft: insets.left,
+          paddingRight: insets.right
+        }]}>
           <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-              <Image source={require('../assets/Arrow 1.png')} style={styles.smallIcon} /> 
+              <Image source={require('../assets/Arrow 1.png')}/> 
           </TouchableOpacity>
 
           <View style={styles.scanFrameContainer}>
@@ -26,7 +35,7 @@ export default function ScanScreen({ navigation }) {
               style={styles.productCardImage} 
             />
           </TouchableOpacity>
-        </SafeAreaView>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -37,8 +46,10 @@ const styles = StyleSheet.create({
   background: { flex: 1, resizeMode: 'cover' },
   safeArea: { flex: 1, justifyContent: 'space-between', padding: 20 },
   backButton: { 
-    width: 40, height: 40, backgroundColor: 'rgba(255,255,255,0.9)', 
-    borderRadius: 20, justifyContent: 'center', alignItems: 'center', marginTop: 20
+    backgroundColor: 'rgba(255,255,255,0.9)', 
+    width: 45, height: 45, borderRadius: 12, 
+    backgroundColor: '#F8F8F8', justifyContent: 'center', alignItems: 'center',
+    marginBottom: 20, marginLeft: 20, marginTop: 20
   },
   
   scanFrameContainer: {
@@ -54,7 +65,7 @@ const styles = StyleSheet.create({
   },
   productCardContainer: {
     alignItems: 'center',
-    marginBottom: -10,
+    marginBottom: '-20%',
     shadowColor: '#000', 
     shadowOffset: { width: 0, height: 4 }, 
     shadowOpacity: 0.1, 

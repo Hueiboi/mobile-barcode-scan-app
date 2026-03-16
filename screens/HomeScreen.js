@@ -1,9 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function HomeScreen({ navigation }) {
+  const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={[styles.container, 
+    { paddingTop: insets.top, 
+      paddingBottom: insets.bottom, 
+      paddingLeft: insets.left,
+      paddingRight: insets.right
+    }]}>
       <View style={styles.innerContainer}>
         <View style={styles.header}>
           <View>
@@ -11,7 +19,7 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.name}>Christie Doe</Text>
           </View>
           <Image 
-            source={require('../../assets/MaskGroup.png')}
+            source={require('../assets/MaskGroup.png')}
             style={styles.avatar} 
           />
         </View>
@@ -24,23 +32,23 @@ export default function HomeScreen({ navigation }) {
             onPress={() => navigation.navigate('Scan')}
           >
             <View style={[styles.iconContainer, { backgroundColor: '#EBE4FF' }]}>
-              <Text style={{ fontSize: 24 }}><Image source={require('../../assets/Group 157.png')}/></Text>
+              <Text style={{ fontSize: 24 }}><Image source={require('../assets/Group 157.png')}/></Text>
             </View>
             <Text style={styles.cardTitle}>Scan new</Text>
             <Text style={styles.cardSub}>Scanned 483</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.card}>
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Payment')}>
             <View style={[styles.iconContainer, { backgroundColor: '#FFEBEA' }]}>
-              <Text style={{ fontSize: 24 }}><Image source={require('../../assets/Frame.png')}/></Text>
+              <Text style={{ fontSize: 24 }}><Image source={require('../assets/Frame.png')}/></Text>
             </View>
             <Text style={styles.cardTitle}>Counterfeits</Text>
             <Text style={styles.cardSub}>Counterfeited 32</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.card}>
+          <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Success')}>
             <View style={[styles.iconContainer, { backgroundColor: '#E4F8F0' }]}>
-              <Text style={{ fontSize: 24 }}><Image source={require('../../assets/Group 158.png')}/></Text>
+              <Text style={{ fontSize: 24 }}><Image source={require('../assets/Group 158.png')}/></Text>
             </View>
             <Text style={styles.cardTitle}>Success</Text>
             <Text style={styles.cardSub}>Checkouts 8</Text>
@@ -48,14 +56,14 @@ export default function HomeScreen({ navigation }) {
 
           <TouchableOpacity style={styles.card}>
             <View style={[styles.iconContainer, { backgroundColor: '#E4F4FF' }]}>
-              <Text style={{ fontSize: 24 }}><Image source={require('../../assets/Group 151.png')}/></Text>
+              <Text style={{ fontSize: 24 }}><Image source={require('../assets/Group 151.png')}/></Text>
             </View>
             <Text style={styles.cardTitle}>Directory</Text>
             <Text style={styles.cardSub}>History 26</Text>
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
