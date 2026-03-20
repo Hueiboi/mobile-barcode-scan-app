@@ -18,8 +18,8 @@ export default function ScanScreen({ navigation }) {
           paddingLeft: insets.left,
           paddingRight: insets.right
         }]}>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-              <Image source={require('../assets/Arrow 1.png')}/> 
+          <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate("Home")}>
+              <Image source={require('../assets/Arrow Purple.png')}/> 
           </TouchableOpacity>
 
           <View style={styles.scanFrameContainer}>
@@ -46,12 +46,10 @@ const styles = StyleSheet.create({
   background: { flex: 1, resizeMode: 'cover' },
   safeArea: { flex: 1, justifyContent: 'space-between', padding: 20 },
   backButton: { 
-    backgroundColor: 'rgba(255,255,255,0.9)', 
     width: 45, height: 45, borderRadius: 12, 
     backgroundColor: '#F8F8F8', justifyContent: 'center', alignItems: 'center',
     marginBottom: 20, marginLeft: 20, marginTop: 20
   },
-  
   scanFrameContainer: {
     flex: 1, 
     alignItems: 'center',

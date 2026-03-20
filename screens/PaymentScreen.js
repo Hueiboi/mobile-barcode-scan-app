@@ -18,10 +18,9 @@ export default function CheckoutScreen({ navigation }) {
       >
         <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
           
-          {/* Header Bo Cong Trắng - Chuẩn theo hình image_e1e386.png */}
           <View style={[styles.headerWhite, { paddingTop: insets.top + 10 }]}>
-            <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
-              <Image source={require('../assets/Arrow 1.png')} />
+            <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate("Home")}>
+              <Image source={require('../assets/Arrow Green.png')} />
             </TouchableOpacity>
 
             <View style={styles.headerRow}>
@@ -34,7 +33,6 @@ export default function CheckoutScreen({ navigation }) {
               </View>
             </View>
 
-            {/* Tab Selector Đè Lên Viền Bo */}
             <View style={styles.tabWrapper}>
               <TouchableOpacity 
                 style={[styles.tab, method === 'card' && styles.activeTab]}
@@ -53,8 +51,7 @@ export default function CheckoutScreen({ navigation }) {
               </TouchableOpacity>
             </View>
           </View>
-
-          {/* Form Nhập Liệu Phía Dưới */}
+          
           <View style={styles.formContainer}>
             <View style={styles.inputBox}>
               <Text style={styles.label}>Card number</Text>
@@ -89,7 +86,6 @@ export default function CheckoutScreen({ navigation }) {
               We will send you an order details to your email after the successfull payment
             </Text>
 
-            {/* Nút Pay - Chuẩn xanh lá image_e1e386.png */}
             <TouchableOpacity 
               style={styles.payBtn}
               onPress={() => navigation.navigate('Success')}
@@ -114,7 +110,11 @@ const styles = StyleSheet.create({
     paddingBottom: 60, // Chừa chỗ cho tab nhảy lên
     zIndex: 1
   },
-  backBtn: { width: 45, height: 45, borderRadius: 12, backgroundColor: '#F8F8F8', justifyContent: 'center', alignItems: 'center', marginBottom: 30 },
+  backButton: {  
+    width: 45, height: 45, borderRadius: 12, 
+    backgroundColor: '#F8F8F8', justifyContent: 'center', alignItems: 'center',
+    marginBottom: 20, marginTop: 20
+  },
   headerRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
   checkoutText: { fontSize: 24, fontWeight: 'bold', color: '#333' },
   priceText: { fontSize: 22, fontWeight: 'bold', color: '#2ECC71' },

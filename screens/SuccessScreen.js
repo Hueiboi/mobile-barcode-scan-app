@@ -16,8 +16,8 @@ export default function SuccessScreen({ navigation }) {
         paddingLeft: insets.left, 
         paddingRight: insets.right
     }]}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.popToTop()}>
-         <Image source={require('../assets/Arrow 1.png')} />
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate("Home")}>
+         <Image source={require('../assets/Arrow Purple.png')}/>
       </TouchableOpacity>
 
       <View style={styles.content}>
@@ -29,7 +29,6 @@ export default function SuccessScreen({ navigation }) {
           />
         </View>
 
-        {/* Text chuẩn theo hình image_e1e384.png */}
         <View style={styles.textGroup}>
           <Text style={styles.title}>Payment Success, Yayy!</Text>
           <Text style={styles.subtitle}>
@@ -39,7 +38,7 @@ export default function SuccessScreen({ navigation }) {
 
         <TouchableOpacity style={styles.checkDetailsBtn}>
           <Text style={styles.checkDetailsText}>Check Details</Text>
-          <Image source={require('../assets/Arrow 1.png')} />
+          <Image source={require('../assets/Arrow Side.png')} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.downloadBtn}>
@@ -53,14 +52,14 @@ export default function SuccessScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#FFF' },
-  backButton: { marginLeft: 20, marginTop: 10, padding: 10 },
-  backIcon: { width: 20, height: 20, tintColor: '#5D5FEF' }, 
-  
+  backButton: { 
+    width: 45, height: 45, borderRadius: 12, 
+    backgroundColor: '#F8F8F8', justifyContent: 'center', alignItems: 'center',
+    marginBottom: 20, marginLeft: 20, marginTop: 20
+  },
   content: { flex: 1, alignItems: 'center', paddingHorizontal: 40 },
-  
   imageWrapper: { marginTop: 40, marginBottom: 30 },
   mainImage: { width: 280, height: 280 },
-
   textGroup: { alignItems: 'center', marginBottom: 30 },
   title: { fontSize: 22, fontWeight: '700', color: '#333', marginBottom: 15 },
   subtitle: { 
@@ -70,7 +69,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     textTransform: 'lowercase' 
   },
-
   checkDetailsBtn: { 
     flexDirection: 'row', 
     alignItems: 'center', 
