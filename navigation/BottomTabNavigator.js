@@ -44,7 +44,7 @@ export default function BottomTabNavigation() {
           tabBarIcon: ({ focused }) => (
             <Image 
               source={require('../assets/Group 152.png')} 
-              style={{ tintColor: focused ? '#5C61F4' : '#D1D1D1' }} 
+              style={{ tintColor: focused ? '#1a9df0' : '#D1D1D1' }} 
             />
           )
         }}
