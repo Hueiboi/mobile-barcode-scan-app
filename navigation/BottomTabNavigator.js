@@ -22,6 +22,7 @@ export default function BottomTabNavigation() {
           tabBarStyle: {
             height: 100,
             paddingBottom: 0,
+            paddingTop: 20,
             alignItems: 'center', // Căn giữa tất cả các item theo chiều dọc
             justifyContent: 'center', // Căn giữa theo chiều ngang
             borderTopLeftRadius: 30, 
